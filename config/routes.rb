@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :courses do
-    get "cancel/:id", to: "courses#cancel", as:"cancel_course"
-    get "select/:id", to: "courses#select", as:"select_course"
+
   end
+  get "/courses/cancel/:id", to: "courses#cancel", as: :cancel
+  get "/courses/select/:id", to: "courses#select", as: :select
 
   get '/static_pages/home'
   get    '/signup',  to: 'users#new'

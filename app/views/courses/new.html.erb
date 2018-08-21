@@ -1,0 +1,18 @@
+
+<h1>Create Course</h1>
+
+<%= form_for @course do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :Teacher %>
+  <%= f.collection_select :teacher_id, @teachers, :id, :name %><br/>
+  <%= f.label :desc %>
+  <%= f.text_area :desc %><br/>
+  <%= f.label :begin_date %>
+  <%= f.text_field :begin_date %><br/>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %><br/>
+  <%= f.label :max_number %>
+  <%= f.number_field :max_number %><br/>
+  <%= f.submit "Create" %>
+<% end %>

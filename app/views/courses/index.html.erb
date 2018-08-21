@@ -8,7 +8,7 @@
   </select>
   <input type="submit" value="Search" />
 </form>
-<table>
+<table border="1">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,15 +26,16 @@
       <td><%= course.desc %></td>
       <td><%= course.begin_date %></td>
       <td><%= course.end_date %></td>
-      <td><%= course.max_member %></td>
+      <td><%= course.max_number %></td>
       <td>
-      <% if @course_selections.find_by( course_id: course.id) %>
-        <%= link_to "Remove", cancel_course(course) %>
+      <% if @hash[course.id] %>
+        <%= link_to "Remove", cancel_path(course) %>
       <%else%>
-        <%= link_to "Select", select_course(course) %>
+        <%= link_to "Select", select_path(course) %>
       <%end%>
       </td>
     </tr>
   <% end %>
   </tbody
-</table
+</table>
+<%= link_to "Create New Course", new_course_path %>
