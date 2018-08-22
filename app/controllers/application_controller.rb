@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
-  #before_filter :check_session, except: [:index, :login, :signup]
+  before_action :check_session
+
   protect_from_forgery with: :exception
   include SessionsHelper
 
   def check_session
-    if session[:user_id]
-      return true
-    else
-      return false
+    if !session[:user_id]
+      redirect_to :login
     end
   end
 end

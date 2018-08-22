@@ -1,10 +1,12 @@
-<h2><%= @question.user.user_name %></h2>
+<%= render partial:"navigator" %>
+
 <h2><%= @question.title %></h2>
 <p><%= @question.content %></p>
+<h4>Create by:<%= @question.user.user_name %> <%= @question.created_at %></h4>
 <% @question.comments.each do |comment| %>
-<%= comment.user.user_name %>
+
 <p><%= comment.content %></p>
-<p></p>
+<h4>Poster: <%= comment.user.user_name %> <%= comment.created_at %></h4>
 <% end %>
 
 

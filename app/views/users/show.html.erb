@@ -1,4 +1,4 @@
-<%= @user.name %>, <%= @user.user_name %>
+<h1> Welcome  <%= @user.name %> </h1>
 <% @user.courses.each do |course| %>
 <br/>
 <%= link_to course.name, course_questions_path(course.id) %>

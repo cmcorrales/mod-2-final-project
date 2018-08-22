@@ -1,4 +1,8 @@
+<%= render partial:"navigator" %>
 <h1>There are <%= @questions.count %> pending questions. </h1>
 <% @questions.each do |question| %>
-  <h3><%=question.user.name%><%= link_to question.title, course_question_path(question.course_id, question.id)%></h3>
+  <h3><%= link_to question.title, course_question_path(question.course_id, question.id)%></h3>
 <% end %>
+
+<br/>
+<%= link_to "Create New Question", new_course_question_path(@course.id) %>

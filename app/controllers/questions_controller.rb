@@ -1,16 +1,15 @@
 class QuestionsController < ApplicationController
 #before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, except:[:create]
   def index
-
-    course_id = params[:course_id]
-    @course = Course.find(course_id)
     @questions = @course.questions
   end
 
   def show
-    course_id = params[:course_id]
     question_id = params[:question_id]
     @question = Question.find(question_id)
+    #course_id = params[:course_id]
+    #@course = @question.course
     @comment = Comment.new
     render :show
   end
@@ -55,8 +54,8 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:title, :content)
     end
 
-    def set_question
-      #byebug
-      @question = Question.find(params[:id])
+    def set_course
+      course_id = params[:course_id]
+      @course = Course.find(course_id)
     end
 end

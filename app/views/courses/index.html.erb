@@ -1,4 +1,4 @@
-
+<%= render partial: "navigator" %>
 <h1> Course List </h1>
 <form method="get" action="<%= courses_path %>">
   <select name="type">
@@ -8,7 +8,7 @@
   </select>
   <input type="submit" value="Search" />
 </form>
-<table border="1">
+<table border="1  ">
   <thead>
     <tr>
       <th>Name</th>
@@ -38,4 +38,4 @@
   <% end %>
   </tbody
 </table>
-<%= link_to "Create New Course", new_course_path %>
+<%= @user.isTeacher ? link_to("Create New Course", new_course_path) : "" %>

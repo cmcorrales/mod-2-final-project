@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   get "/courses/cancel/:id", to: "courses#cancel", as: :cancel
   get "/courses/select/:id", to: "courses#select", as: :select
-
-  get '/static_pages/home'
-  get    '/signup',  to: 'users#new'
+  get "/", to: "users#show", as: :index
+  get '/static_pages/home', to: "static_pages#home", as: :home
+  get    '/signup',  to: 'users#new', as: :signup
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#login'
   get '/logout',  to: 'sessions#logout'

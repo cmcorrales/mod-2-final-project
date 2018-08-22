@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :course_selections
   has_many :courses, through: :course_selections
+
+  def isTeacher
+    self.user_type == "T"
+  end
 end

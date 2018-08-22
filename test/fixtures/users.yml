@@ -8,6 +8,6 @@ one:
 
 two:
   name: MyString
-  type: 
+  type:
   user_name: MyString
   password_digest: MyString
