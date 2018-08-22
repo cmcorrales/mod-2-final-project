@@ -8,14 +8,15 @@ class CommentsController < ApplicationController
     def create
       # is this what I use to redirect to the question show page so the user can see the newly added comment?
       question_id = params[:question_id]
+      user_id = session[:user_id]
       @question = Question.find(question_id)
-      comments = @question.comments
+      course_id = @question.course_id
 
-      @comment = comment.new(comment_params)
+      @comment = Comment.new(content: comment_params[:content], user_id: user_id, question_id: question_id)
       if @comment.valid?
         @comment.save
-        # this is my attempt to get to the questions path :( it's probably wrong 
-        redirect_to question_path(@question)
+        # this is my attempt to get to the questions path :( it's probably wrong
+        redirect_to course_question_path(course_id, @question.id)
       else
         render :new
       end
@@ -41,12 +42,11 @@ class CommentsController < ApplicationController
 
     private
       def comment_params
-        params.require(:comment).permit(:question_id, :content, :user_id)
+        params.require(:comment).permit(:content)
       end
 
       def set_comment
         @comment = comment.find(params[:id])
       end
-  end
 
 end

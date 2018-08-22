@@ -1,1 +1,10 @@
 <%= @user.name %>, <%= @user.user_name %>
+<% @user.courses.each do |course| %>
+<br/>
+<%= link_to course.name, course_questions_path(course.id) %>
+<% end %>
+
+<br/>
+<%= @user.courses.size() == 0 ? "You don't have course, Please select it." : ""%>
+<br/>
+<%= link_to "Select Courses", courses_path %>

@@ -23,12 +23,12 @@ class CoursesController < ApplicationController
 
   def new
     @user = User.find(session[:user_id])
-    if @user.user_type != "2"
+    if @user.user_type != "T"
       redirect_to courses_path
     else
       @course = Course.new
       @teachers = User.all.select do |user|
-        user.user_type == "2"
+        user.user_type == "T"
       end
       render :new
     end

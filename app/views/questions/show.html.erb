@@ -1,10 +1,15 @@
+<h2><%= @question.user.user_name %></h2>
 <h2><%= @question.title %></h2>
 <p><%= @question.content %></p>
-<p><%= @question.comments %></p>
+<% @question.comments.each do |comment| %>
+<%= comment.user.user_name %>
+<p><%= comment.content %></p>
+<p></p>
+<% end %>
 
-<%= link_to "Add a Comment", new_comment_path %>
 
-<%= form_for @comment do |f| %>
+<h3>You can comment here:</h3>
+<%= form_for @comment, url:question_comments_path do |f| %>
   <%= f.label :content %>
   <%= f.text_area :content %>
   <%= f.submit %>

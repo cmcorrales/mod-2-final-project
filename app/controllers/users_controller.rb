@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :user_name, :password, :confirmation)
+      param  = params.require(:user).permit(:name, :user_name, :password, :confirmation)
+      param["user_type"] = "S"
+      param
     end
 end
