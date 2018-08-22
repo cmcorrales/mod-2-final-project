@@ -1,0 +1,41 @@
+
+<h1> Course List </h1>
+<form method="get" action="<%= courses_path %>">
+  <select name="type">
+    <option value="1">All</option>
+    <option value="2">Selected</option>
+    <option value="3">Not Selected</option>
+  </select>
+  <input type="submit" value="Search" />
+</form>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Desc</th>
+      <th>Begin Date</th>
+      <th>End Date</th>
+      <th>Max member</th>
+      <th>operation</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+      <td><%= course.desc %></td>
+      <td><%= course.begin_date %></td>
+      <td><%= course.end_date %></td>
+      <td><%= course.max_number %></td>
+      <td>
+      <% if @hash[course.id] %>
+        <%= link_to "Remove", cancel_path(course) %>
+      <%else%>
+        <%= link_to "Select", select_path(course) %>
+      <%end%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody
+</table>
+<%= link_to "Create New Course", new_course_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  teacher_id: 1
+  desc: MyString
+  begin_date: MyString
+  end_date: MyString
+  max_number: 1
+
+two:
+  name: MyString
+  teacher_id: 1
+  desc: MyString
+  begin_date: MyString
+  end_date: MyString
+  max_number: 1
