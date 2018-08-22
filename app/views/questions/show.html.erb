@@ -1,0 +1,11 @@
+<h2><%= @question.title %></h2>
+<p><%= @question.content %></p>
+<p><%= @question.comments %></p>
+
+<%= link_to "Add a Comment", new_comment_path %>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
