@@ -14,7 +14,9 @@ course3 = Course.create(name:"Chemistry", teacher_id: 3, desc:"hahahahahahahahah
 course4 = Course.create(name:"Ruby", teacher_id: 2, desc:"hahahahahahahahahahahahahahahaha", begin_date:"5/14", end_date:"9/28", max_number: 30 )
 course5 = Course.create(name:"JavaScript", teacher_id: 2, desc:"hahahahahahahahahahahahahahahaha", begin_date:"5/14", end_date:"9/28", max_number: 30 )
 
-question
+question1 = Question.create(title: "help", content: "who am i?", course_id: 1, user_id: 1)
+question1 = Question.create(title: "help", content: "who am i?", course_id: 1, user_id: 1)
+question1 = Question.create(title: "help", content: "who am i?", course_id: 1, user_id: 1)
 
 
 #
