@@ -1,5 +1,6 @@
 <%= render partial: "navigator" %>
 <h1> Course List </h1>
+<h3 style="color:red"> <%= flash[:notice] %> </h3  >
 <form method="get" action="<%= courses_path %>">
   <select name="type">
     <option value="1">All</option>
@@ -12,6 +13,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Teacher</th>
       <th>Desc</th>
       <th>Begin Date</th>
       <th>End Date</th>
@@ -23,10 +25,11 @@
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
+      <td><%= course.teacher.name %></td>
       <td><%= course.desc %></td>
       <td><%= course.begin_date %></td>
       <td><%= course.end_date %></td>
-      <td><%= course.max_number %></td>
+      <td><%= "#{course.users.size}/#{course.max_number}" %></td>
       <td>
       <% if @hash[course.id] %>
         <%= link_to "Remove", cancel_path(course) %>

@@ -23,12 +23,12 @@ class CoursesController < ApplicationController
 
   def new
     @user = User.find(session[:user_id])
-    if @user.user_type != "T"
+    if !@user.isTeacher
       redirect_to courses_path
     else
       @course = Course.new
       @teachers = User.all.select do |user|
-        user.user_type == "T"
+        user.isTeacher
       end
       render :new
     end
@@ -37,6 +37,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.create(course_params)
     if @course.valid?
+      CourseSelection.create(course_id: @course.id, user_id: @course.teacher_id)
       redirect_to courses_path
     else
       render :new
@@ -54,8 +55,14 @@ class CoursesController < ApplicationController
   def select
     @course = Course.find(params[:id])
     user_id = session[:user_id]
-    cs = CourseSelection.create(user_id: user_id, course_id: @course.id)
-    redirect_to courses_path
+    if @course.course_selections.size >= @course.max_number
+      flash[:notice] = "Over max number in this course, you can't choose it."
+      redirect_to courses_path
+    else
+      cs = CourseSelection.create(user_id: user_id, course_id: @course.id)
+      redirect_to courses_path
+    end
+
   end
   private
 
