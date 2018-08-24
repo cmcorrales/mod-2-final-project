@@ -10,6 +10,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(question_id)
     #course_id = params[:course_id]
     #@course = @question.course
+
+    @comments = [@question] + @question.comments
+
     @comment = Comment.new
     render :show
   end
