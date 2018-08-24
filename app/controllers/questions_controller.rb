@@ -55,6 +55,7 @@ class QuestionsController < ApplicationController
     end
 
     def set_course
+      @user = User.find(session[:user_id])
       course_id = params[:course_id]
       @course = Course.find(course_id)
     end

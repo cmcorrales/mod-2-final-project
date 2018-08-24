@@ -1,6 +1,51 @@
 <%= render partial:"navigator" %>
-<br/>
-<h1>There are <%= @questions.count %> pending questions, or you can <%= link_to "Create New Question", new_course_question_path(@course.id) %></h1>
-<% @questions.each do |question| %>
-  <h3><%= link_to question.title, course_question_path(question.course_id, question.id)%></h3>
-<% end %>
+
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                  <span data-feather="home"><%=@user.name.titleize%>'s Courses</span> <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <% @user.courses.each do |course| %>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"><%= course.name %></span> <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 questions-main">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2"><%= @course.name.titleize %></h1>
+          <h4>Pending Questions: <%= @questions.count %> <%= link_to "Add Question", new_course_question_path(@course.id) %></h4>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Question</th>
+                  <th>Student</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% number = 1 %>
+                  <% @questions.each do |question| %>
+                  <td><%= number %></td>
+                  <td><%= link_to question.title, course_question_path(question.course_id, question.id)%></td>
+                  <td><%= @user.name %></td>
+                  <% number += 1 %>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+    </div>
