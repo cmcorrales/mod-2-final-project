@@ -46,7 +46,8 @@
                   <%= form_for @comment, url:question_comments_path do |f| %>
 
                     <%= f.text_area :content,  cols: "80", rows: "12" %><br/>
-                    <%= f.submit class: "btn btn-default stat-item"%>
+                    
+                    <%= f.submit class: "btn btn-default stat-item btn-warning" %>
                   <% end %>
                 </div>
             </div>

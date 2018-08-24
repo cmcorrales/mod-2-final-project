@@ -13,8 +13,8 @@
         <%= f.password_field :password, class: "form-control", placeholder:"Password" %>
         <br/>
         <%= f.label :password_confirmation, :class => 'sr-only' %>
-        <%= f.text_field :password_confirmation, class: "form-control", placeholder:"Password confirmation" %><br/>
-        <%= f.submit "Sign up",class: "btn btn-lg btn-primary btn-block" %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder:"Password confirmation" %><br/>
+        <%= f.submit "Sign up",class: "btn btn-lg btn-warning btn-block" %>
 
         <p class="mt-5 mb-3 text-muted">Already have an account?<%= link_to " Log in here", login_path %>.</p>
       <% end %>

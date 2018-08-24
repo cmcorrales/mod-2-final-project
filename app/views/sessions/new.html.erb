@@ -2,14 +2,13 @@
 <div class="div-center-parent">
   <div class="div-center-items">
     <%= form_for(:session, url: login_path, class: "form-signin div-center") do |f| %>
-      <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV77qitZe7j9tXIwTPmWG0TZhPrUCC0AmC8U1yJ6Y_E8eXyTlL" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <%= f.label :user_name, :class => 'sr-only' %>
       <%= f.text_field :user_name, class: "form-control", placeholder:"User name" %><br/>
       <%= f.label :password, :class => 'sr-only' %>
       <%= f.password_field :password, class: "form-control", placeholder:"Password" %>
       <br/>
-      <%= f.submit "Sign in",class: "btn btn-lg btn-primary btn-block" %>
+      <%= f.submit "Sign in",class: "btn btn-lg btn-warning btn-block" %>
 
       <p class="mt-5 mb-3 text-muted">Don't have an account?<%= link_to " Sign up here", signup_path %>.</p>
     <% end %>

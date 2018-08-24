@@ -7,9 +7,8 @@
     transform: translate(-50%, -50%);
     font-size: 25px;
 }
-</style>
 
-<main role="main">
+</style>
 
       <section class="jumbotron text-center course-selection-banner">
         <div class="container">
@@ -22,7 +21,10 @@
       </section>
       <div class="album py-5 bg-light">
         <div class="container">
-          <%= icon('fas', 'plus-circle') %><%= link_to "Add a new course", courses_path %>
+          <!-- <%= icon('fas', 'plus-circle') %><%= link_to "Add a new course", courses_path %> -->
+          <button type="button" class="btn btn-warning">
+            <span class="glyphicon glyphicon-plus"></span> <%= link_to "Add a new course", courses_path %><br/>
+          </button>
           <div class="row">
             <% @user.courses.each do |course| %>
             <div class="col-md-4">
@@ -45,5 +47,3 @@
           </div>
         </div>
       </div>
-
-    </main>
