@@ -1,14 +1,18 @@
 
   <div class="div-center">
   <nav>
-  <ul class="nav navbar-nav navbar-right custom-nav">
-    <li><%= logged_in? ? link_to("Home", index_path) : link_to("Home", login_path) %></li>
-    <li><a href="#">About</a></li>
-    <% if logged_in? %>
-    <li><%= link_to "Log Out", logout_path %></li>
-    <% else %>
-    <li><%= link_to "Sign up", signup_path %></li>
-    <% end %>
+  <ul>
+    <div class="nav navbar-nav navbar-left">
+      <h1 class="nav-heading">QuestionHelper</h1>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <li><%= logged_in? ? link_to("Home", index_path) : link_to("Home", login_path) %></li>
+      <% if logged_in? %>
+      <li><%= link_to "Log Out", logout_path %></li>
+      <% else %>
+      <li><%= link_to "Sign up", signup_path %></li>
+      <% end %>
+  </div>
   </ul>
   </nav>
 </div>

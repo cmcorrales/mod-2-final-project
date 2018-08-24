@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Fredericka+the+Great');
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 html,
 body {
@@ -172,4 +174,9 @@ nav {
 
 .questions-main {
   margin-left: 200px;
+}
+
+.nav-heading {
+  font-family: 'Fredericka the Great', cursive;
+  padding-bottom: 20px;
 }
