@@ -9,6 +9,7 @@
 }
 
 </style>
+  <% idx=0 %>
 
       <section class="jumbotron text-center course-selection-banner">
         <div class="container">
@@ -26,12 +27,14 @@
             <span class="glyphicon glyphicon-plus"></span> <%= link_to "Add a new course", courses_path %><br/>
           </button>
           <div class="row">
+
             <% @user.courses.each do |course| %>
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
 
                 <div>
-                  <a href ="<%= course_questions_path(course)%>" ><img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="<%= randomized_background_image %>" ></a>
+                  <a href ="<%= course_questions_path(course)%>" ><img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="<%= background_images[idx % background_images.size] %>" ></a>
+                  <% idx += 1%>
                   <div class="centered"><%= course.name %></div>
                 </div>
                 <div class="card-body">
