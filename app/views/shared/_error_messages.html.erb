@@ -1,11 +1,13 @@
-<% if @user.errors.any? %>
+<% if @cur_model && @cur_model.errors.any? %>
     <div>
       The form contains <%= pluralize(@user.errors.count, "error") %>.<br/>
 
     <ul style="color:red">
-    <% @user.errors.full_messages.each do |msg| %><br/>
+
+    <% @cur_model.errors.full_messages.each do |msg| %><br/>
       <li><%= msg %></li>
     <% end %>
     </ul>
+    <% @cur_model = nil %>
   </div>
 <% end %>
