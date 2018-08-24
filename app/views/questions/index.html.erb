@@ -22,13 +22,14 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 questions-main">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="course-heading"><%= @course.name.titleize %></h1>
+          <div class="course-info">
+          <h1 class="page-heading"><%= @course.name.titleize %></h1>
           <h4>Pending Questions: <%= @questions.count %></h4>
             <!-- <%= icon('fas', 'plus-circle') %> -->
             <button type="button" class="btn btn-warning">
               <span class="glyphicon glyphicon-plus"></span> <%= link_to "Add Question", new_course_question_path(@course.id) %>
             </button>
-
+          </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>

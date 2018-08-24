@@ -192,15 +192,32 @@ nav {
   color: #e9692c;
 }
 
-a:link {
-  color: black;
+button, a:link {
+  color: white;
 }
 
-a:visited {
+button, a:visited {
   color: black;
   text-decoration: none;
 }
 
 .btn-warning {
   margin-bottom: 40px;
+}
+
+.page-heading {
+  font-size: 50px;
+  font-family: 'Fredericka the Great', cursive;
+}
+.course-info {
+  text-align: center;
+  padding-bottom: 10px;
+}
+h4 {
+  color: #47B200;
+  font-size: 30px;
+}
+.question-form {
+  margin-top: 150px;
+  text-align: center;
 }
