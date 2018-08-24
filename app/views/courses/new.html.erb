@@ -1,18 +1,25 @@
-<%= render partial: "navigator" %>
+
 <h1>Create Course</h1>
 
-<%= form_for @course do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br/>
-  <%= f.label :Teacher %>
-  <%= f.collection_select :teacher_id, @teachers, :id, :name %><br/>
-  <%= f.label :desc %>
-  <%= f.text_area :desc %><br/>
-  <%= f.label :begin_date %>
-  <%= f.text_field :begin_date %><br/>
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %><br/>
-  <%= f.label :max_number %>
-  <%= f.number_field :max_number %><br/>
-  <%= f.submit "Create" %>
-<% end %>
+<div >
+
+  <div class="div-center-items">
+    <%= render partial: "navigator" %>
+    <%= form_for(@course, class: "form-signin div-center") do |f| %>
+      <%= render 'shared/error_messages'%>
+      <%= f.label :name, :class => 'sr-only' %>
+      <%= f.text_field :name, class: "form-control", placeholder:"Name" %><br/>
+      <%= f.label :Teacher, :class => 'sr-only' %>
+      <%= f.collection_select :teacher_id, @teachers, :id, :name %><br/>
+      <%= f.label :desc, :class => 'sr-only' %>
+      <%= f.text_area :desc, class: "form-control", placeholder:"Description" %><br/>
+      <%= f.label :begin_date, :class => 'sr-only' %>
+      <%= f.text_field :begin_date, class: "form-control", placeholder:"Begin Date" %><br/>
+      <%= f.label :end_date, :class => 'sr-only' %>
+      <%= f.text_field :end_date, class: "form-control", placeholder:"End Date" %><br/>
+      <%= f.label :max_number, :class => 'sr-only' %>
+      <%= f.number_field :max_number, class: "form-control", placeholder:"Max Number" %><br/>
+      <%= f.submit "Create",class: "btn btn-lg btn-warning btn-block" %>
+    <% end %>
+  </div>
+</div>

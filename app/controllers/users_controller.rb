@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
+      @cur_model = @user
       render :new
     end
   end

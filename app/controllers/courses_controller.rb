@@ -40,6 +40,11 @@ class CoursesController < ApplicationController
       CourseSelection.create(course_id: @course.id, user_id: @course.teacher_id)
       redirect_to courses_path
     else
+      @teachers = User.all.select do |user|
+        user.isTeacher
+      end
+      @user = User.find(session[:user_id])
+      @cur_model = @course
       render :new
     end
   end
