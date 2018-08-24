@@ -1,15 +1,13 @@
-
-<h1>Create Course</h1>
-
-<div >
+<br/><br/>
+<div class="div-center-parent">
 
   <div class="div-center-items">
-    <%= render partial: "navigator" %>
+
     <%= form_for(@course, class: "form-signin div-center") do |f| %>
       <%= render 'shared/error_messages'%>
       <%= f.label :name, :class => 'sr-only' %>
       <%= f.text_field :name, class: "form-control", placeholder:"Name" %><br/>
-      <%= f.label :Teacher, :class => 'sr-only' %>
+      <%= f.label "Teacher Name" %>
       <%= f.collection_select :teacher_id, @teachers, :id, :name %><br/>
       <%= f.label :desc, :class => 'sr-only' %>
       <%= f.text_area :desc, class: "form-control", placeholder:"Description" %><br/>

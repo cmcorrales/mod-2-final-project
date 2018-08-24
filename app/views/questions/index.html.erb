@@ -5,7 +5,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                  <span data-feather="home"><%=@user.name.titleize%>'s Courses</span> <span class="sr-only">(current)</span>
+                  <span data-feather="home"><h3><%=@user.name.titleize%>'s Courses</h3></span> <span class="sr-only">(current)</span>
                 </a>
               </li>
               <% @user.courses.each do |course| %>

@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     @question.course_id = params[:course_id]
     if @question.valid?
       @question.save
-      redirect_to course_questions_path(@question.course_id)
+      redirect_to course_question_path(@question.course_id,@question.id)
     else
       render :new
     end
