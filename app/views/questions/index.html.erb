@@ -1,4 +1,4 @@
-<%= render partial:"navigator" %>
+
 
 <div class="container-fluid">
       <div class="row">
@@ -12,7 +12,7 @@
               <% @user.courses.each do |course| %>
               <li class="nav-item">
                 <a class="nav-link active" href="#">
-                  <span data-feather="home"><%= course.name %></span> <span class="sr-only">(current)</span>
+                  <span data-feather="home"><%= link_to course.name, course_questions_path(course) %></span> <span class="sr-only">(current)</span>
                 </a>
               </li>
               <% end %>
@@ -23,6 +23,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 questions-main">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <%= render partial:"navigator" %>
           <h1 class="h2"><%= @course.name.titleize %></h1>
           <h4>Pending Questions: <%= @questions.count %> <%= link_to "Add Question", new_course_question_path(@course.id) %></h4>
           <div class="table-responsive">
@@ -35,15 +36,17 @@
                 </tr>
               </thead>
               <tbody>
+                <% @questions.each do |question| %>
                 <tr>
                   <% number = 1 %>
-                  <% @questions.each do |question| %>
+
                   <td><%= number %></td>
                   <td><%= link_to question.title, course_question_path(question.course_id, question.id)%></td>
-                  <td><%= @user.name %></td>
+                  <td><%= question.user.name %></td>
                   <% number += 1 %>
-                  <% end %>
+
                 </tr>
+                <% end %>
               </tbody>
             </table>
           </div>

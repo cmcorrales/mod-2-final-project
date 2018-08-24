@@ -9,36 +9,39 @@
   </select>
   <input type="submit" value="Search" />
 </form>
-<table border="1  ">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Teacher</th>
-      <th>Desc</th>
-      <th>Begin Date</th>
-      <th>End Date</th>
-      <th>Max member</th>
-      <th>operation</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @courses.each do |course| %>
-    <tr>
-      <td><%= course.name %></td>
-      <td><%= course.teacher.name %></td>
-      <td><%= course.desc %></td>
-      <td><%= course.begin_date %></td>
-      <td><%= course.end_date %></td>
-      <td><%= "#{course.users.size}/#{course.max_number}" %></td>
-      <td>
-      <% if @hash[course.id] %>
-        <%= link_to "Remove", cancel_path(course) %>
-      <%else%>
-        <%= link_to "Select", select_path(course) %>
-      <%end%>
-      </td>
-    </tr>
-  <% end %>
-  </tbody
-</table>
 <%= @user.isTeacher ? link_to("Create New Course", new_course_path) : "" %>
+
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Teacher</th>
+        <th>Desc</th>
+        <th>Begin Date</th>
+        <th>End Date</th>
+        <th>Max member</th>
+        <th>operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= course.teacher.name %></td>
+          <td><%= course.desc %></td>
+          <td><%= course.begin_date %></td>
+          <td><%= course.end_date %></td>
+          <td><%= "#{course.users.size}/#{course.max_number}" %></td>
+          <td>
+          <% if @hash[course.id] %>
+            <%= link_to "Remove", cancel_path(course) %>
+          <%else%>
+            <%= link_to "Select", select_path(course) %>
+          <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

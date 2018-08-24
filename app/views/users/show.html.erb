@@ -1,16 +1,18 @@
 <main role="main">
+
       <section class="jumbotron text-center course-selection-banner">
         <div class="container">
           <h1 class="course-selection-text jumbotron-heading">Welcome, <%= @user.name.titleize %>.</h1>
 
           <p class="lead text-muted course-selection-text"><%= @user.courses.size() > 0 ? "Select a course below to add or view questions." : "You don't have course, please add a course."%></p>
-          <%= link_to "Add a new course", courses_path %>
+
         </div>
+
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
-
+          <%= link_to "Add a new course", courses_path %>
           <div class="row">
             <% @user.courses.each do |course| %>
             <div class="col-md-4">
