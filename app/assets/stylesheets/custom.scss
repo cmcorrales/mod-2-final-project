@@ -159,6 +159,7 @@ nav {
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
+  padding: 0;
   color: inherit;
 }
 
@@ -226,7 +227,6 @@ h4 {
   padding-top: 50px;
   padding-left: 200px;
   padding-right: 200px;
-
 }
 
 .mt-5 a {
@@ -254,4 +254,9 @@ input[type=password]:focus {
  border-radius: 5px;
  width: 450px;
  font: large Verdana,sans-serif;
+}
+
+.course-style {
+  padding-top: 50px;
+  text-align: center;
 }

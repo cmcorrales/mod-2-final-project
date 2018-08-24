@@ -1,5 +1,6 @@
 <%= render partial: "navigator" %>
-<h1> Course List </h1>
+<div class="form-style">
+<h1 class="page-heading course-style"> Course List </h1>
 <h3 style="color:red"> <%= flash[:notice] %> </h3  >
 <form method="get" action="<%= courses_path %>">
   <select name="type">
@@ -7,7 +8,7 @@
     <option value="2">Selected</option>
     <option value="3">Not Selected</option>
   </select>
-  <input type="submit" value="Search" />
+  <input type="submit" value="Search" class="btn-warning" />
 </form>
 <%= @user.isTeacher ? link_to("Create New Course", new_course_path) : "" %>
 
@@ -44,4 +45,5 @@
       <% end %>
     </tbody>
   </table>
+</div>
 </div>
